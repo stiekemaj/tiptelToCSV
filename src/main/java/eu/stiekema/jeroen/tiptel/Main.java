@@ -16,11 +16,12 @@ public class Main {
 
     public static void main(String[] args) throws IOException, InvalidTiptelFileException {
         if (args.length != 2) {
-            throw new RuntimeException("Twee argumenten verwacht: <inputfile> <outputfile>");
+            System.err.println("Two arguments expected: <inputfile> <outputfile>");
+            System.exit(0);
         }
 
-        TiptelProcessorFactory tiptelProcessorFactory = new Tiptel195ProcessorFactory();
         TiptelFileReader tiptelFileReader = new TiptelFileReaderImpl(args[0]);
+        TiptelProcessorFactory tiptelProcessorFactory = new Tiptel195ProcessorFactory();
         OutputWriter outputWriter = new CsvOutputWriter(args[1]);
 
         TiptelConverter converter = new TiptelConverter(tiptelProcessorFactory);
