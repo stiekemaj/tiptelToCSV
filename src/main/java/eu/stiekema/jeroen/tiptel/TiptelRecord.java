@@ -1,6 +1,8 @@
 package eu.stiekema.jeroen.tiptel;
 
 /**
+ * Holds the data of a single tiptel t9t record
+ *
  * @author Jeroen Stiekema
  */
 public class TiptelRecord {
@@ -40,17 +42,6 @@ public class TiptelRecord {
 
     public String getTelephoneNumber() {
         return telephoneNumber;
-    }
-
-    public String toCommaSeparatedLine() {
-        String name = this.name != null ? this.name.replace("\t", "   ") : "";
-        String telephoneNumber = this.telephoneNumber != null ? this.telephoneNumber.replace("\t", "   ") : "";
-        String information = this.information != null ? this.information.replace("\t", "   ") : "";
-        return String.format("%s\t%s\t%s", name.replace("\t", "  "), telephoneNumber, information);
-    }
-
-    public static String getCommaSeparetedHeader() {
-        return "NAAM\tTELEFOONNUMMER\tINFORMATIE";
     }
 
     public void setInformation(String information) {
