@@ -10,14 +10,14 @@ import java.io.IOException;
  * @author Jeroen Stiekema
  */
 public class TiptelConverter {
-    TiptelFieldProcessor tiptelFieldProcessor;
+    private TiptelFieldProcessor tiptelFieldProcessor;
 
     public TiptelConverter(TiptelProcessorFactory tiptelProcessorFactory) {
         this.tiptelFieldProcessor = tiptelProcessorFactory.createTiptelFieldProcessor();
     }
 
     public void convert(TiptelFileReader tiptelFileReader, OutputWriter outputWriter) throws IOException {
-        while (!tiptelFileReader.endOfFile()) {
+        while (tiptelFileReader.hasNext()) {
             TiptelRecord tiptelRecord = new TiptelRecord();
             tiptelFieldProcessor.process(tiptelFileReader, tiptelRecord);
             outputWriter.write(tiptelRecord);

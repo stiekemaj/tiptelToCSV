@@ -6,5 +6,5 @@ import java.io.IOException;
  * @author Jeroen Stiekema
  */
 public interface FieldReader {
-    public byte[] read(TiptelFileReader reader) throws IOException;
+    public byte[] read() throws IOException;
 }

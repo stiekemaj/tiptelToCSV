@@ -9,7 +9,7 @@ import java.io.PrintWriter;
  */
 public class CsvOutputWriter implements OutputWriter {
 
-    PrintWriter printWriter;
+    private PrintWriter printWriter;
 
     public CsvOutputWriter(String file) throws IOException {
         this.printWriter = new PrintWriter(file, "UTF-8");

@@ -14,7 +14,7 @@ public class StringFieldReader implements FieldReader {
     }
 
     @Override
-    public byte[] read(TiptelFileReader reader) throws IOException {
+    public byte[] read() throws IOException {
         int stringLength = randomAccessFile.readByte();
         byte[] byteArray = new byte[stringLength];
         randomAccessFile.read(byteArray);

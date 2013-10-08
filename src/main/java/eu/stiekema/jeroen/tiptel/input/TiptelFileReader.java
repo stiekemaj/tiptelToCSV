@@ -8,5 +8,5 @@ import java.io.IOException;
 public interface TiptelFileReader {
     byte[] nextField() throws IOException;
 
-    boolean endOfFile() throws IOException;
+    boolean hasNext() throws IOException;
 }

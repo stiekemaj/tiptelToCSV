@@ -37,11 +37,11 @@ public class TiptelFileReaderImpl implements TiptelFileReader {
         int markerByte = getAndResetMarkerByte();
         switch (markerByte) {
             case ONE_BYTE_WORD_PREFIX:
-                return oneByteFieldReader.read(this);
+                return oneByteFieldReader.read();
             case TWO_BYTES_WORD_PREFIX:
-                return twoByteFieldReader.read(this);
+                return twoByteFieldReader.read();
             case STRING_PREFIX:
-                return stringFieldReader.read(this);
+                return stringFieldReader.read();
             case END_OF_FILE:
                 return null;
             default:
@@ -50,8 +50,8 @@ public class TiptelFileReaderImpl implements TiptelFileReader {
     }
 
     @Override
-    public boolean endOfFile() throws IOException {
-        return getMarkerByte() == END_OF_FILE;
+    public boolean hasNext() throws IOException {
+        return getMarkerByte() != END_OF_FILE;
     }
 
     private byte getMarkerByte() throws IOException {

@@ -14,7 +14,7 @@ public class TwoByteFieldReader implements FieldReader {
     }
 
     @Override
-    public byte[] read(TiptelFileReader reader) throws IOException {
+    public byte[] read() throws IOException {
         byte[] bytes = new byte[2];
         randomAccessFile.read(bytes);
         return bytes;
